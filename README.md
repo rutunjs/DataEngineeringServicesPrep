@@ -1,7 +1,5 @@
 <details>
   <summary><b>AWS S3 - Simple storage services</b></summary>
-
-
     <details>
         <summary><b>Access control mechanisms</b></summary>
 
@@ -40,7 +38,7 @@
         - If using ACLs, ensure that they only grant permissions to specific AWS accounts or users. Avoid using ACLs that provide public or overly permissive access.<br/>
         - We can give access using Canonical user ID. Which is reside in security credential -> Account details Tab<br/>
         - Sample Bucket Policy :<br/>
-        
+
 <br/>
     </details>
 
