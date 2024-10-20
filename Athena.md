@@ -68,6 +68,9 @@
   - Athena Query Federation with Lambda UDFs
     - Lambda UDF for Custom Logic: In addition to SQL UDFs, Athena supports using AWS Lambda functions as UDFs (User Defined Functions). This allows you to execute custom code during query execution, enabling more complex logic like calling external APIs, applying machine learning models, or working with unstructured data.
     - Data Transformation on the Fly: These federated queries enable custom processing and transformations that go beyond Athena's built-in SQL functionality.
+  - MSCK REPAIR TABLE
+    - The MSCK REPAIR TABLE command in Amazon Athena is used to update the AWS Glue Data Catalog with information about new partitions that have been added to a table in Amazon S3, but are not yet reflected in the Data Catalog. This command is particularly useful for partitioned tables when new partitions are manually added to the underlying S3 storage, but the metadata for those partitions has not yet been updated in the Glue Data Catalog.
+    - Use it when To avoid manually adding each new partition to the Glue Data Catalog using ALTER TABLE ADD PARTITION.
 </details>
 
 <details>
@@ -219,4 +222,12 @@
       LOCATION 's3://your-bucket/iceberg/my_iceberg_table/';
 
       ```
+    - OPTIMIZE table REWRITE DATA  USING BIN_PACK  WHERE catalog = 'c1'
+      - REWRITE DATA
+        - This part tells Iceberg to rewrite the data files within the table. The purpose is to reduce the number of small files or poorly organized data, which can slow down queries.
+      - USING BIN_PACK:
+        - BIN_PACK is a file compaction strategy in Iceberg. It groups smaller files into larger bins (files), aiming to create larger, more efficient files. This reduces the number of files that need to be scanned during queries, leading to better performance.
+        - Other strategies could include Z-order or sort-based optimization, but BIN_PACK is typically used to compact small files efficiently.
+      - OPTIMIZE my_table_name:
+        - The command starts by specifying the Iceberg table (my_table_name) that you want to optimize. The optimization process is carried out to improve performance by compacting small files into fewer, larger files.
 </details> 

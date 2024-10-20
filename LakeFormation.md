@@ -161,6 +161,21 @@
           }
           ```
         - This policy allows the user to read metadata from Glue, query data through Athena, and access specific tables in the data lake.
+</details>
+
+
+<details>
+  <summary><b>Governance Table in Lake Formation</b></summary>
+
+  - In AWS Lake Formation, a Governance Table is a specialized type of data table designed to support fine-grained access control, auditing, and enhanced transaction management within a data lake. Governance tables offer additional features over traditional tables, such as row-level and column-level security, ACID (Atomicity, Consistency, Isolation, Durability) transactions, and centralized audit logging. These tables help organizations ensure better data governance and compliance with policies, especially when dealing with sensitive or regulated data.
+  - Key features
+    - Row-Level and Column-Level Security : Governance tables allow for fine-grained access controls, enabling administrators to define who can access specific rows and columns within a table.
+    - ACID Transactions : Governance tables in Lake Formation support ACID transactions, allowing users to perform inserts, updates, and deletes in a way that guarantees data consistency and integrity.
+    - Centralized Audit Logging : Governance tables provide detailed audit trails of data access and modification activities. You can track who accessed or modified data, what data they interacted with, and when those operations occurred.
+    - Unified Access Management : Governance tables integrate seamlessly with Lake Formation’s unified access control framework, allowing you to set fine-grained data permissions across AWS services such as Amazon Athena, AWS Glue, and Amazon Redshift Spectrum.
+    - Tag-Based Access Control (TBAC) : You can use tag-based access control (TBAC) with governance tables to apply access policies based on metadata tags. For example, you can tag sensitive columns and restrict access to them based on a user’s role or department.
+    - Data Lake Federation : Governance tables support federated querying across multiple AWS services and external sources, making it easier to enforce governance across diverse data sources while maintaining a single, consistent access control model.
+    - Data Masking : Governance tables can implement data masking to hide sensitive information dynamically based on the user’s permissions. This feature ensures that users can only see data they are authorized to access without creating multiple versions of the same dataset.
 
 </details>
 
